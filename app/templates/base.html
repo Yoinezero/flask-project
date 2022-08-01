@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        {% if title %}
+        <title>{{ title }} - Flask project</title>
+        {% else %}
+        <title>Hello, world!</title>
+        {% endif %}
+    </head>
+    <body>
+
+        <nav id="navbar">
+            <ul id="navbar-menu">
+                <li class="navbar-item"> - <a href="#">Home</a></li>
+                <li class="navbar-item"> - <a href="#">My posts</a></li>
+                <li class="navbar-item"> - <a href="#">Profile</a></li>
+                <li class="navbar-item"> - <a href="#">About</a></li>
+                <li class="navbar-item"> - <a href="#">Exit</a> - </li>
+            </ul>
+        </nav>
+
+
+        {% block content %}
+
+        {% endblock %}
+
+    </body>
+</html>
