@@ -1,24 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        {% if title %}
-        <title>{{ title }} - Flask project</title>
-        {% else %}
-        <title>Hello, world!</title>
-        {% endif %}
-    </head>
-    <body>
+{% extends "base.html" %}
 
-        <h1>Hello, {{ user.username }}</h1>
+{% block content %}
 
-        {% for post in posts %}
-        <div>
-            <p>
-                {{ post.author.username }} says: <b>{{ post.body }}</b>
-            </p>
-        </div>
-        {% endfor %}
+    <h1>Hello, {{ user.username }}</h1>
 
-    </body>
-</html>
+    {% for post in posts %}
+    <div>
+        <p>
+            {{ post.author.username }} says: <b>{{ post.body }}</b>
+        </p>
+    </div>
+    {% endfor %}
+{% endblock %}
