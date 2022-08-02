@@ -45,7 +45,7 @@ def login():
         login_user(user, remember=form.remember_me.data)
         next_page = request.args.get('next')
 
-        if next_page or url_parse(next_page).netloc != '':
+        if not next_page or url_parse(next_page).netloc != '':
             next_page = url_for('index')
 
         return redirect(next_page)
@@ -72,3 +72,14 @@ def register():
 def logout():
     logout_user()
     return redirect(url_for('login'))
+
+
+@app.route('/user/<username>')
+@login_required
+def user(username):
+    user = User.query.filter_by(username=username).first_or_404()
+    posts = [
+        {'author': user, 'body': 'Test post #1'},
+        {'author': user, 'body': 'Test post #2'}
+    ]
+    return render_template('user.jinja2', user=user, posts=posts)
