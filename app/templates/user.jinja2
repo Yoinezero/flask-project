@@ -1,11 +1,12 @@
 {% extends "base.jinja2" %}
 
 {% block content %}
-    {% include "nav.jinja2" %}
+    {% include "_nav.jinja2" %}
+    <img src="{{ user.avatar(128) }}" alt="{{ user.username }}_avatar">
     <h1>User: {{ user.username }}</h1>
+    {% if user.about_me %}<p>{{ user.about_me }}</p>{% endif %}
+    {% if user.last_seen %}<p>Last seen on: {{ user.last_seen }}</p>{% endif %}
     {% for post in posts %}
-        <p>
-            {{ post.author.username }} says: <b>{{ post.body }}</b>
-        </p>
+        {% include "_post.jinja2" %}
     {% endfor %}
 {% endblock %}

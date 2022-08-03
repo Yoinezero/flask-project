@@ -11,20 +11,7 @@ from app.models import User
 @app.route('/index')
 @login_required
 def index():
-    posts = [
-        {
-            'author': {'username': 'Smith'},
-            'body': 'Beautiful day today!'
-        },
-        {
-            'author': {'username': 'Sushi'},
-            'body': 'Special offer! 3 for the price of 2!'
-        },
-        {
-            'author': {'username': 'Suzaki'},
-            'body': 'Omae wa mou shindeiru!'
-        },
-    ]
+    posts = []
     return render_template('index.jinja2', title='Blog', posts=posts)
 
 
