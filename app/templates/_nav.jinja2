@@ -1,7 +1,7 @@
 <nav id="navbar">
     <ul id="navbar-menu">
         <li class="navbar-item"> - <a href="{{ url_for('index') }}">Home</a></li>
-        <li class="navbar-item"> - <a href="#">My posts</a></li>
+        <li class="navbar-item"> - <a href="{{ url_for('explore') }}">Users</a></li>
         <li class="navbar-item"> - <a href="{{ url_for('user', username=current_user.username) }}">Profile</a></li>
         <li class="navbar-item"> - <a href="#">About</a></li>
         <li class="navbar-item"> - <a href="{{ url_for('logout') }}">Logout</a> -</li>
