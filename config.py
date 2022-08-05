@@ -20,4 +20,5 @@ class Config:
     MAIL_PASSWORD = os.environ.get('MAIL_PASSWORD')
     ADMINS = [os.environ.get('ADMINS', '').split(' ')]
 
+    # PAGINATION SETTINGS
     POSTS_PER_PAGE = 3
