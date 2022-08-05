@@ -1,16 +1,18 @@
 {% extends "base.jinja2" %}
 
 {% block content %}
-    <h1>Reset Password</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=64) }}
-            {% for error in form.email.errors %}
-                <span style="color: red">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        {{ form.submit() }}
-    </form>
+    <div class="form-wrapper">
+        <form action="" method="post" class="auth" id="reset-request-form">
+            <h1>Reset Password</h1>
+            {{ form.hidden_tag() }}
+            <p class="username email">
+                {{ form.email.label }}<br>
+                {{ form.email(size=64) }}
+                {% for error in form.email.errors %}
+                    <span style="color: red">[{{ error }}]</span>
+                {% endfor %}
+            </p>
+            <p class="form-button">{{ form.submit() }}</p>
+        </form>
+    </div>
 {% endblock %}

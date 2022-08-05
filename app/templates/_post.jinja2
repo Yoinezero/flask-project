@@ -1,6 +1,11 @@
-<p>
-    <img src="{{ post.author.avatar(36) }}" alt="{{ post.author.username }}_avatar">
-    <a href="{{ url_for('user', username=post.author.username) }}">
-        {{ post.author.username }}
-    </a> says: <b>{{ post.body }}</b>
-</p>
+<div class="post-item">
+    <img class="avatar" src="{{ post.author.avatar(36) }}" alt=" ">
+    <div class="post-header">
+        <a class="name-link" href="{{ url_for('user', username=post.author.username) }}">
+            <b>{{ post.author.username }}</b>
+        </a> says:
+    </div>
+    <div class="post-body">
+        {{ post.body }}
+    </div>
+</div>

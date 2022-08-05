@@ -21,4 +21,4 @@ class Config:
     ADMINS = [os.environ.get('ADMINS', '').split(' ')]
 
     # PAGINATION SETTINGS
-    POSTS_PER_PAGE = 3
+    POSTS_PER_PAGE = 5
