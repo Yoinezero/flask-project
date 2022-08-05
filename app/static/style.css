@@ -1,0 +1,518 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+    color: white;
+}
+
+body {
+    background-color: #4c4c52;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover, a:hover b {
+    color: #c3c1c5;
+    transition: .5s;
+}
+
+input {
+    font-family: serif;
+}
+
+
+#navbar {
+    position: relative;
+    display: flex;
+    top: 20px;
+    left: 0;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+#navbar-menu {
+    display: flex;
+    box-sizing: border-box;
+    position: relative;
+    width: calc(100% - 10px);
+    height: calc(100% - 10px);
+    margin: 5px;
+    padding: 5px 0 5px 0;
+    border: 3px solid #373535;
+}
+
+.navbar-item {
+    display: block;
+    height: 100%;
+    padding: 0 5px 0 5px;
+    width: calc(100% / 5);
+}
+
+.navbar-item a {
+    display: flex;
+    font-size: 18px;
+    font-family: "Fira Code", sans-serif;
+    width: 100%;
+    height: 100%;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-item a:hover {
+    color: black;
+    background-color: #f2f2f2;
+    transition: .5s;
+}
+
+#posts-box {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+}
+
+.post-item {
+    display: grid;
+    grid-template-columns: 70px calc(100% - 70px);
+    grid-template-rows: 25px 45px;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    width: 80%;
+    height: 70px;
+    margin: 5px;
+    border: 3px solid #373535;
+
+    padding: 5px;
+    font-size: 16px;
+
+    overflow: hidden;
+}
+
+.post-item .avatar {
+    grid-area: 1 / 1 / 3 / 2;
+}
+
+.post-item .post-header {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.post-item .post-body {
+    grid-area: 2 / 2 / 3 / 3;
+}
+
+.avatar {
+    width: 70px;
+    height: 70px;
+    display: block;
+    background-color: white;
+}
+
+.post-header {
+    display: block;
+    margin-left: 10px;
+}
+
+.post-body {
+    display: block;
+    margin-left: 10px;
+}
+
+#message-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+    height: 150px;
+}
+
+.greetings {
+    font-size: 20px;
+    width: 80%;
+}
+
+.text-area, .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+
+.text-area textarea {
+    display: block;
+    background-color: #4c4a52;
+    border: 3px solid #373535;
+    resize: none;
+    width: 100%;
+    height: 70px;
+    padding: 5px;
+    margin: 5px;
+    font-size: 16px;
+    font-family: serif;
+}
+
+.text-area textarea:focus {
+    outline: none;
+    border-color: white;
+    transition: .5s;
+}
+
+.text-area textarea:hover {
+    border-color: white;
+    transition: .5s;
+}
+
+.button input[type=submit] {
+    background-color: #4d4852;
+    border: 3px solid #373535;
+    padding: 5px;
+    height: 25px;
+    width: 100%;
+    box-sizing: content-box;
+    margin: -15px 5px 5px;
+    cursor: pointer;
+}
+
+.button input[type=submit]:hover {
+    border-color: white;
+    transition: .5s;
+}
+
+#user-profile {
+    display: grid;
+    grid-template-columns: 200px calc(100% - 350px) 150px;
+    grid-template-rows: 25px 125px 50px;
+    grid-column-gap: 0;
+    grid-row-gap: 0;
+
+    border: 3px solid #373535;
+    padding: 5px;
+    margin: 5px 5px 15px;
+    width: 80%;
+}
+
+.div1 {
+    grid-area: 1 / 1 / 4 / 2;
+}
+
+#user-header {
+    grid-area: 1 / 2 / 2 / 3;
+    display: flex;
+    align-items: center;
+}
+
+#user-header h1 {
+    font-size: 18px;
+    margin-left: 10px;
+}
+
+#description {
+    grid-area: 2 / 2 / 3 / 4;
+    margin-left: 10px;
+}
+
+#user-stats {
+    grid-area: 3 / 2 / 4 / 3;
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#last-seen {
+    grid-area: 3 / 3 / 4 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.option {
+    grid-area: 1 / 3 / 2 / 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div1 {
+    background-color: white;
+}
+
+.form-wrapper {
+    z-index: -1;
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+
+.auth {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 500px;
+    height: 500px;
+    border: 3px solid #373535;
+
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.auth h1 {
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.username {
+    width: 100%;
+}
+
+.username input[type=text] {
+    width: 100%;
+}
+
+.username input[type=text]:hover {
+    border-color: white;
+    transition: .5s;
+}
+
+.username input[type=text]:focus {
+    border-color: white;
+    transition: .5s;
+}
+
+.password {
+    width: 100%;
+}
+
+.password input[type=password] {
+    width: 100%;
+}
+
+.password input[type=password]:hover {
+    border-color: white;
+    transition: .5s;
+}
+
+.password input[type=password]:focus {
+    border-color: white;
+    transition: .5s;
+}
+
+.username input[type=text], .password input[type=password] {
+    box-sizing: border-box;
+    padding: 5px;
+
+    border: 3px solid #373535;
+    background-color: #4c4a52;
+    outline: none;
+    height: 45px;
+
+    text-align: center;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.username label {
+    font-size: 20px;
+}
+
+.password label {
+    font-size: 20px;
+}
+
+.remember {
+    width: 100%;
+}
+
+.remember label {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+}
+
+.remember input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.remember label {
+    cursor: pointer;
+}
+
+.remember label:hover {
+    color: #c3c1c5;
+}
+
+.remember input[type=checkbox] + label::before {
+    content: '';
+    display: inline-block;
+    box-sizing: border-box;
+    width: 45px;
+    height: 45px;
+    border: 3px solid #373535;
+    opacity: 1;
+    margin-right: 15px;
+    padding: 5px;
+    cursor: pointer;
+    transition: .5s
+}
+
+.remember input[type=checkbox]:checked + label::before {
+    border-color: white;
+    background-color: #66ba5c;
+    box-shadow: #4c4a52 inset 0 0 0 5px;
+    transition: .5s;
+}
+
+.remember input[type=checkbox]:hover + label::before {
+    border-color: white;
+    transition: .5s;
+}
+
+.redirect, .reset-pwd {
+    margin-top: 10px;
+    padding: 5px;
+    font-size: 20px;
+    width: 100%;
+    display: flex;
+}
+
+.redirect a, .reset-pwd a {
+    font-size: 20px;
+    text-decoration: underline;
+}
+
+
+.form-button {
+    width: 100%;
+    margin-top: 35px;
+}
+
+.form-button input[type=submit] {
+    background-color: #4d4852;
+    border: 3px solid #373535;
+    padding: 5px;
+    width: 100%;
+    height: 45px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+.form-button input[type=submit]:hover {
+    background-color: #66ba5c;
+    box-shadow: #4c4a52 inset 0 0 0 5px;
+    border-color: white;
+    transition: .5s;
+}
+
+#register-form {
+    height: 600px;
+}
+
+#reset-request-form {
+    height: 240px;
+}
+
+.email input[type=text] {
+    margin-bottom: 0;
+}
+
+#reset-pwd-form {
+    height: 330px;
+}
+
+#reset-pwd-form .form-button {
+    margin-top: 10px;
+}
+
+#messages-list {
+    position: fixed;
+    right: 10px;
+    top: 10px;
+    list-style: none;
+}
+
+.message {
+    font-size: 20px;
+    width: 350px;
+    padding: 5px;
+    margin: 5px;
+    white-space: break-spaces;
+    background-color: #b04c52;
+    border: 3px solid #963535;
+}
+
+.about-me {
+    width: 100%;
+}
+
+.about-me textarea:hover {
+    border-color: white;
+    transition: .5s;
+}
+
+.about-me textarea:focus {
+    border-color: white;
+    transition: .5s;
+}
+
+.about-me textarea {
+    box-sizing: border-box;
+    padding: 5px;
+
+    border: 3px solid #373535;
+    background-color: #4c4a52;
+    outline: none;
+    height: 90px;
+
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    resize: none;
+
+    font-family: serif;
+}
+
+.about-me label {
+    font-size: 20px;
+}
+
+#edit-form {
+    height: 370px;
+}
+
+#edit-form .form-button {
+    margin-top: 0;
+}
+
+#page-nav {
+    font-size: 20px;
+    position: fixed;
+    bottom: 30px;
+}
+
+#page-nav a {
+    font-size: 20px;
+    text-decoration: underline;
+}

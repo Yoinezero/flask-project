@@ -1,38 +1,42 @@
 {% extends "base.jinja2" %}
 
 {% block content %}
-    <h1>Sign Up</h1>
-    <form action="" method="post">
-        {{ form.hidden_tag() }}
-        <p>
-            {{ form.username.label }}<br>
-            {{ form.username(size=32) }}
-            {% for error in form.username.errors %}
-                <span style="color: red">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.email.label }}<br>
-            {{ form.email(size=32) }}
-            {% for error in form.email.errors %}
-                <span style="color: red">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password.label }}<br>
-            {{ form.password(size=32) }}
-            {% for error in form.password.errors %}
-                <span style="color: red">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>
-            {{ form.password2.label }}<br>
-            {{ form.password2(size=32) }}
-            {% for error in form.password2.errors %}
-                <span style="color: red">[{{ error }}]</span>
-            {% endfor %}
-        </p>
-        <p>Already have account? <a href="{{ url_for('login') }}"> Click to Login!</a></p>
-        <p>{{ form.submit() }}</p>
-    </form>
+    <div class="form-wrapper">
+        <form action="" method="post" class="auth" id="register-form">
+            <h1>Sign Up</h1>
+            {{ form.hidden_tag() }}
+            <p class="username">
+                {{ form.username.label }}
+                {% for error in form.username.errors %}
+                    <span style="color: red">[{{ error }}]</span>
+                {% endfor %}<br>
+                {{ form.username(size=32) }}
+
+            </p>
+            <p class="username">
+                {{ form.email.label }}
+                {% for error in form.email.errors %}
+                    <span style="color: red">[{{ error }}]</span>
+                {% endfor %}<br>
+                {{ form.email(size=32) }}
+
+            </p>
+            <p class="password">
+                {{ form.password.label }}
+                {% for error in form.password.errors %}
+                    <span style="color: red">[{{ error }}]</span>
+                {% endfor %}<br>
+                {{ form.password(size=32) }}
+            </p>
+            <p class="password">
+                {{ form.password2.label }}
+                {% for error in form.password2.errors %}
+                    <span style="color: red">[{{ error }}]</span>
+                {% endfor %}<br>
+                {{ form.password2(size=32) }}
+            </p>
+            <p class="redirect">Already have account?&emsp;<a href="{{ url_for('login') }}"> Click to Login!</a></p>
+            <p class="form-button">{{ form.submit() }}</p>
+        </form>
+    </div>
 {% endblock %}

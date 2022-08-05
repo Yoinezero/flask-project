@@ -2,30 +2,24 @@
 
 {% block content %}
     {% include "_nav.jinja2" %}
-    <img src="{{ user.avatar(128) }}" alt="{{ user.username }}_avatar">
-    <h1>User: {{ user.username }}</h1>
-    {% if user.about_me %}
-        <p>{{ user.about_me }}</p>
-    {% endif %}
-    {% if user.last_seen %}
-        <p>Last seen on: {{ user.last_seen }}</p>
-    {% endif %}
-    <p>{{ user.followers.count() }} followers, {{ user.followed.count() }} following.</p>
-    {% if user == current_user %}
-        <p><a href="{{ url_for('edit_profile') }}">Edit your profile</a></p>
-    {% elif not current_user.is_following(user) %}
-        <p><a href="{{ url_for('follow', username=user.username) }}">Follow&emsp;&#9825;</a></p>
-    {% else %}
-        <p><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow &#10084;</a></p>
-    {% endif %}
-    <hr>
-    {% for post in posts %}
-        {% include "_post.jinja2" %}
-    {% endfor %}
-    {% if prev_url %}
-        <a href="{{ prev_url }}">< Newer posts</a>
-    {% endif %}
-    {% if next_url %}
-        <a href="{{ next_url }}">Older posts ></a>
-    {% endif %}
+    <div id="user-profile">
+        <img class="div1" src="{{ user.avatar(128) }}" alt=" ">
+        <div id="user-header"><h1>{{ user.username }}</h1></div>
+        {% if user.about_me %}
+            <div id="description">{{ user.about_me }}</div>
+        {% endif %}
+        {% if user.last_seen %}
+            <div id="last-seen">Last online: {{ user.last_seen }}</div>
+        {% endif %}
+        <div id="user-stats">{{ user.followers.count() }} followers<br> {{ user.followed.count() }} following.</div>
+        {% if user == current_user %}
+            <div class="option"><a href="{{ url_for('edit_profile') }}">Edit profile</a></div>
+        {% elif not current_user.is_following(user) %}
+            <div class="option"><a href="{{ url_for('follow', username=user.username) }}">Follow&emsp;&#9825;</a></div>
+        {% else %}
+            <div class="option"><a href="{{ url_for('unfollow', username=user.username) }}">Unfollow &#10084;</a></div>
+        {% endif %}
+    </div>
+
+    {% include "_posts.jinja2" %}
 {% endblock %}
