@@ -9,9 +9,6 @@ from app.core.forms import PostForm
 from app.users.models import Post
 
 
-
-
-
 @core_bp.route('/', methods=['GET', 'POST'])
 @login_required
 def index():
