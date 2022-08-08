@@ -9,15 +9,17 @@
             <div id="description">{{ user.about_me }}</div>
         {% endif %}
         {% if user.last_seen %}
-            <div id="last-seen">Last online: {{ user.last_seen }}</div>
+            <div id="last-seen">Last online: {{ user.user_last_seen }}</div>
         {% endif %}
         <div id="user-stats">{{ user.followers.count() }} followers<br> {{ user.followed.count() }} following.</div>
         {% if user == current_user %}
             <div class="option"><a href="{{ url_for('users.edit_profile') }}">Edit profile</a></div>
         {% elif not current_user.is_following(user) %}
-            <div class="option"><a href="{{ url_for('users.follow', username=user.username) }}">Follow&emsp;&#9825;</a></div>
+            <div class="option"><a href="{{ url_for('users.follow', username=user.username) }}">Follow&emsp;&#9825;</a>
+            </div>
         {% else %}
-            <div class="option"><a href="{{ url_for('users.unfollow', username=user.username) }}">Unfollow &#10084;</a></div>
+            <div class="option"><a href="{{ url_for('users.unfollow', username=user.username) }}">Unfollow &#10084;</a>
+            </div>
         {% endif %}
     </div>
 
