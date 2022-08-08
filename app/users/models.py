@@ -1,5 +1,6 @@
 import jwt
 from datetime import datetime
+from dateutil import tz
 from time import time
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
@@ -77,6 +78,15 @@ class User(UserMixin, db.Model):
         except jwt.DecodeError:
             return
         return User.query.get(id_)
+
+    @property
+    def user_last_seen(self):
+        from_zone, to_zone = tz.tzutc(), tz.tzlocal()
+        utc = self.last_seen.strftime('%d-%m-%Y %H:%M')
+        utc = datetime.strptime(utc, '%d-%m-%Y %H:%M')
+        utc = utc.replace(tzinfo=from_zone)
+        current_user_timestamp = utc.astimezone(to_zone)
+        return current_user_timestamp.strftime('%d-%m-%Y %H:%M')
 
 
 class Post(db.Model):
