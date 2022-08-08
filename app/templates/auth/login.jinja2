@@ -2,8 +2,8 @@
 
 {% block content %}
     <div class="form-wrapper">
-        <form action="" method="post" class="auth" id="register-form">
-            <h1>Sign Up</h1>
+        <form action="" method="post" class="auth" id="login-form">
+            <h1>Sign In</h1>
             {{ form.hidden_tag() }}
             <p class="username">
                 {{ form.username.label }}
@@ -11,15 +11,6 @@
                     <span style="color: red">[{{ error }}]</span>
                 {% endfor %}<br>
                 {{ form.username(size=32) }}
-
-            </p>
-            <p class="username">
-                {{ form.email.label }}
-                {% for error in form.email.errors %}
-                    <span style="color: red">[{{ error }}]</span>
-                {% endfor %}<br>
-                {{ form.email(size=32) }}
-
             </p>
             <p class="password">
                 {{ form.password.label }}
@@ -28,14 +19,13 @@
                 {% endfor %}<br>
                 {{ form.password(size=32) }}
             </p>
-            <p class="password">
-                {{ form.password2.label }}
-                {% for error in form.password2.errors %}
-                    <span style="color: red">[{{ error }}]</span>
-                {% endfor %}<br>
-                {{ form.password2(size=32) }}
+            <p class="remember">{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+            <p class="redirect">New User?&emsp;&emsp;&emsp;<a href="{{ url_for('auth.register') }}"> Click here to
+                Register!</a></p>
+            <p class="reset-pwd">
+                Forgot your password?&emsp;&emsp;
+                <a href="{{ url_for('auth.reset_password_request') }}">Click here to reset it.</a>
             </p>
-            <p class="redirect">Already have account?&emsp;<a href="{{ url_for('login') }}"> Click to Login!</a></p>
             <p class="form-button">{{ form.submit() }}</p>
         </form>
     </div>
