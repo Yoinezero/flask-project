@@ -129,3 +129,7 @@ dmypy.json
 .pyre/
 .idea
 flask-project.iml
+
+# Project ignores
+logs
+app.db

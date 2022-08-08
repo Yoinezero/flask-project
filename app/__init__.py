@@ -8,7 +8,7 @@ from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_mail import Mail
 
-from config import Config
+from app.config import Config
 
 db = SQLAlchemy()
 migrate = Migrate()
