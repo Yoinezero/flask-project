@@ -29,29 +29,40 @@ input {
 #navbar {
     position: relative;
     display: flex;
+    align-items: center;
+    justify-content: center;
+
     top: 20px;
     left: 0;
+
     height: 50px;
-    width: 100%;
+    width: 80%;
     margin-bottom: 50px;
+
+    border: 3px solid #373535;
+    padding: 5px;
 }
 
 #navbar-menu {
+    width: 100%;
     display: flex;
-    box-sizing: border-box;
     position: relative;
-    width: calc(100% - 10px);
-    height: calc(100% - 10px);
-    margin: 5px;
-    padding: 5px 0 5px 0;
-    border: 3px solid #373535;
+    height: 100%;
 }
 
 .navbar-item {
     display: block;
     height: 100%;
     padding: 0 5px 0 5px;
-    width: calc(100% / 5);
+    width: calc(100% / 4);
+}
+
+.navbar-item:first-child {
+    padding: 0 5px 0 0;
+}
+
+.navbar-item:last-child {
+    padding: 0 0 0 5px;
 }
 
 .navbar-item a {
@@ -157,7 +168,7 @@ input {
     height: 70px;
     padding: 5px;
     margin: 5px;
-    font-size: 16px;
+    font-size: 18px;
     font-family: serif;
 }
 
@@ -514,5 +525,9 @@ input {
 
 #page-nav a {
     font-size: 20px;
+    text-decoration: underline;
+}
+
+.return {
     text-decoration: underline;
 }
