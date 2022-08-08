@@ -1,7 +1,7 @@
-from flask import render_template, flash, redirect, url_for, request
+from flask import render_template, flash, redirect, url_for, request, current_app as app
 from flask_login import current_user, login_required
 
-from app import app, db
+from app import db
 from app.users import users_bp
 from app.users.forms import EditProfileForm
 from app.users.models import Post, User
@@ -49,7 +49,7 @@ def follow(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
         flash(f'User {username} not found.')
-        return redirect(url_for('index'))
+        return redirect(url_for('main.index'))
     if user == current_user:
         flash('You cannot follow yourself!')
         return redirect(url_for('users.user_page', username=username))
@@ -65,7 +65,7 @@ def unfollow(username):
     user = User.query.filter_by(username=username).first()
     if user is None:
         flash(f'User {username} not found.')
-        return redirect(url_for('index'))
+        return redirect(url_for('main.index'))
     if user == current_user:
         flash('You cannot unfollow yourself!')
         return redirect(url_for('users.user_page', username=username))

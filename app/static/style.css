@@ -527,3 +527,7 @@ input {
     font-size: 20px;
     text-decoration: underline;
 }
+
+.return {
+    text-decoration: underline;
+}
