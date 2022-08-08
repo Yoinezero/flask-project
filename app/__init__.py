@@ -19,9 +19,9 @@ mail = Mail()
 
 def create_app(config_class=Config):
     app = Flask(__name__)
-    app.config.from_object(Config)
+    app.config.from_object(config_class)
 
-    from app.users import models as user_models
+    from app.users import models as users_models
 
     db.init_app(app)
     migrate.init_app(app, db)
