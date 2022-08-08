@@ -3,10 +3,10 @@ from flask_login import current_user, login_user, logout_user
 from werkzeug.urls import url_parse
 
 from app import db
-from app.models import User
 from app.auth import auth_bp
-from app.auth.forms import LoginForm, RegistrationForm, ResetPasswordForm, PasswordResetRequestForm
 from app.auth.email import send_password_reset_email
+from app.auth.forms import LoginForm, RegistrationForm, ResetPasswordForm, PasswordResetRequestForm
+from app.users.models import User
 
 
 @auth_bp.route('/login', methods=['GET', 'POST'])
