@@ -1,4 +1,5 @@
 import jwt
+from hashlib import md5
 from datetime import datetime
 from dateutil import tz
 from time import time
@@ -41,7 +42,8 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
     def avatar(self, size):
-        return 'No avatar'
+        email_hash = md5(self.email.lower().encode('utf-8')).hexdigest()
+        return f"https://www.gravatar.com/avatar/{email_hash}?d=identicon&s{size}"
 
     def is_following(self, user):
         return self.followed.filter(followers.c.followed_id == user.id).count() > 0

@@ -1,9 +1,15 @@
 <nav id="navbar">
     <ul id="navbar-menu">
-        <li class="navbar-item"><a href="{{ url_for('main.index') }}">Home</a></li>
-        <li class="navbar-item"><a href="{{ url_for('main.explore') }}">Users</a></li>
-        <li class="navbar-item"><a
-                href="{{ url_for('users.user_page', username=current_user.username) }}">Profile</a></li>
-        <li class="navbar-item"><a href="{{ url_for('auth.logout') }}">Logout</a></li>
+        <li class="navbar-item {% if request.path == '/' %} active {% endif %}">
+            <a href="{{ url_for('main.index') }}">Home</a>
+        </li>
+        <li class="navbar-item {% if request.path == '/explore' or ('/user' in request.path and current_user.username not in request.path) %} active {% endif %}">
+            <a href="{{ url_for('main.explore') }}">Users</a></li>
+        <li class="navbar-item {% if current_user.username in request.path %} active {% endif %}">
+            <a href="{{ url_for('users.user_page', username=current_user.username) }}">Profile</a>
+        </li>
+        <li class="navbar-item">
+            <a href="{{ url_for('auth.logout') }}">Logout</a>
+        </li>
     </ul>
 </nav>

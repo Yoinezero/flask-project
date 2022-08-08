@@ -25,6 +25,10 @@ input {
     font-family: serif;
 }
 
+img {
+    border-radius: 10%;
+}
+
 
 #navbar {
     position: relative;
@@ -80,6 +84,16 @@ input {
     color: black;
     background-color: #f2f2f2;
     transition: .5s;
+}
+
+.active a {
+    color: black;
+    background-color: #f2f2f2;
+}
+
+.active a:hover {
+    color: #4c4c52;
+    background-color: #a29d9d;
 }
 
 #posts-box {
@@ -214,6 +228,10 @@ input {
 
 .div1 {
     grid-area: 1 / 1 / 4 / 2;
+    height: 200px;
+    width: 200px;
+    overflow: hidden;
+    aspect-ratio: auto;
 }
 
 #user-header {

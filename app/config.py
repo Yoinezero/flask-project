@@ -2,7 +2,7 @@ import os
 from dotenv import load_dotenv
 
 basedir = os.path.abspath(os.path.dirname(__file__))
-load_dotenv(os.path.join(basedir, '.env'))
+load_dotenv(os.path.join(basedir, '../.env'))
 
 
 class Config:
@@ -23,6 +23,9 @@ class Config:
 
     # PAGINATION SETTINGS
     POSTS_PER_PAGE = 5
+
+    # PROJECT SETTINGS
+    PROJECT_NAME = os.environ.get('PROJECT_NAME')
 
 
 class TestingConfig(Config):
