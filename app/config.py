@@ -8,8 +8,7 @@ class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or 'you will never guess'
 
     # DATABASE
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-                              'sqlite:///' + os.path.join(basedir, 'app.db')
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or 'sqlite:///' + os.path.join(basedir, '../app.db')
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     # MAIL
@@ -22,3 +21,8 @@ class Config:
 
     # PAGINATION SETTINGS
     POSTS_PER_PAGE = 5
+
+
+class TestingConfig(Config):
+    TESTING = True
+    SQLALCHEMY_DATABASE_URI = 'sqlite://'
