@@ -31,6 +31,7 @@ pip install -r requirements.txt
 SECRET_KEY="secret_key"
 DATABASE_URL="sql_uri"
 TEST_DATABASE_URL="sql_test_uri"
+PROJECT_NAME='Flask application'
 ~~~
 
 ### Database workflow:
@@ -61,4 +62,30 @@ flask db downgrade
 
 ~~~
 gunicorn --bind 0.0.0.0:5000 "app:create_app()"
+~~~
+
+### Run application using docker-compose
+
+1. Change .env database parameters and add new ones:
+
+~~~
+...
+DATABASE_URL='uri'
+TEST_DATABASE_URL='test_uri'
+...
+POSTGRES_USER='postgres_user'
+POSTGRES_PASSWORD='postgres_user_password'
+POSTGRES_DB='postgres_dev_db'
+~~~
+
+2. Build docker-compose containers:
+
+~~~
+docker-compose build
+~~~
+
+3. Run docker-compose containers:
+
+~~~
+docker-compose up
 ~~~
