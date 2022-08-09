@@ -3,7 +3,7 @@
 {% block content %}
     {% include "_nav.jinja2" %}
     <div id="user-profile">
-        <img class="div1" src="{{ user.avatar(128) }}" alt=" ">
+        <img class="div1" src="{{ user.avatar(200) }}" alt=" ">
         <div id="user-header"><h1>{{ user.username }}</h1></div>
         {% if user.about_me %}
             <div id="description">{{ user.about_me }}</div>
